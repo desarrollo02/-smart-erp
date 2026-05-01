@@ -1,0 +1,7 @@
+embed-server --server-config=standalone.xml --std-out=echo
+
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-class-name=org.postgresql.Driver)
+
+/subsystem=datasources/data-source=ERPDS:add(jndi-name=java:/jdbc/ERPDS,driver-name=postgresql,connection-url=jdbc:postgresql://postgres:5432/erpdb,user-name=erpuser,password=1234,min-pool-size=5,max-pool-size=20,enabled=true)
+
+stop-embedded-server
