@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+
+<h:head>
+    <title>Competidores</title>
+</h:head>
+
+<h:body>
+
+    <h1>Registro de Competidores</h1>
+
+    <h:form>
+        <p>
+            Nombre:
+            <h:inputText value="#{competidorBean.nombre}" />
+        </p>
+
+        <p>
+            Rubro:
+            <h:inputText value="#{competidorBean.rubro}" />
+        </p>
+
+        <p>
+            Ciudad:
+            <h:inputText value="#{competidorBean.ciudad}" />
+        </p>
+
+        <p>
+            Dirección:
+            <h:inputText value="#{competidorBean.direccion}" />
+        </p>
+
+        <h:commandButton value="Guardar" action="#{competidorBean.guardar}" />
+    </h:form>
+
+    <hr/>
+
+    <h2>Lista de competidores</h2>
+
+    <h:dataTable value="#{competidorBean.competidores}" var="c" border="1">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{c.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Nombre</f:facet>
+            #{c.nombre}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Rubro</f:facet>
+            #{c.rubro}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Ciudad</f:facet>
+            #{c.ciudad}
+        </h:column>
+    </h:dataTable>
+
+</h:body>
+</html>

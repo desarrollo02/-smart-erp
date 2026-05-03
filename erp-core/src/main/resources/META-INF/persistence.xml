@@ -1,0 +1,24 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             version="3.0">
+
+    <persistence-unit name="ERP_PU" transaction-type="JTA">
+
+        <!-- conexión con WildFly -->
+        <jta-data-source>java:/jdbc/ERPDS</jta-data-source>
+
+        <!-- escaneo automático (clave para plugins) -->
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+        <properties>
+            <!-- logs (para aprender) -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- hibernate validara si los jpa tienen los datos correctos, asi com es la base de datos -->
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
