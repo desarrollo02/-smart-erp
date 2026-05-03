@@ -1,13 +1,13 @@
 ## Capas
 
-Bean (JSF)
-↓
-Service
-↓
-Repository
-↓
-JPA
-↓
+JSF / Web
+  ↓
+Caso de uso
+  ↓
+Puerto
+  ↓
+Adaptador JPA
+  ↓
 PostgreSQL
 
 ## Principios

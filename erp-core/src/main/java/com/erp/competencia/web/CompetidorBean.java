@@ -1,7 +1,10 @@
 package com.erp.competencia.web;
 
+import com.erp.competencia.application.dto.CompetidorDTO;
 import com.erp.competencia.domain.Competidor;
-import com.erp.competencia.service.CompetidorService;
+import com.erp.competencia.application.usecase.ListarCompetidoresUseCase;
+import com.erp.competencia.application.usecase.RegistrarCompetidorUseCase;
+
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
@@ -18,22 +21,25 @@ public class CompetidorBean {
     private String ciudad;
     private String direccion;
 
-    private List<Competidor> competidores;
+    private List<CompetidorDTO> competidores;
 
     @Inject
-    private CompetidorService competidorService;
+    private RegistrarCompetidorUseCase registrarUseCase;
+
+    @Inject
+    private ListarCompetidoresUseCase listarUseCase;
 
     @PostConstruct
     public void init() {
-        competidores = competidorService.listarCompetidores();
+        competidores = listarUseCase.ejecutar();
     }
 
     public String guardar() {
-        competidorService.registrarCompetidor(nombre, rubro, ciudad, direccion);
+        registrarUseCase.ejecutar(nombre, rubro, ciudad, direccion);
         return "competidores?faces-redirect=true";
     }
 
-    public List<Competidor> getCompetidores() {
+    public List<CompetidorDTO> getCompetidores() {
         return competidores;
     }
 

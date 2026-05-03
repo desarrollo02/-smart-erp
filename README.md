@@ -12,14 +12,6 @@ Sistema ERP modular basado en Jakarta EE, WildFly, PostgreSQL y Docker.
 - Maven
 - Docker
 
-## Arquitectura
-
-- JSF (presentación)
-- Service (lógica de negocio)
-- Repository (acceso a datos)
-- JPA (persistencia)
-- Flyway (versionado de base de datos)
-
 ## Levantar el proyecto
 
 docker compose -f infra/docker/docker-compose.yml up -d --build
